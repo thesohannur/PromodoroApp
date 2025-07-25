@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.pomodoro.pomodoroapp.controller.PomodoroController"
+      stylesheets="@styles.css" spacing="15" style="-fx-padding: 20;">
+
+    <HBox spacing="15" alignment="TOP_RIGHT">
+        <Button text="Settings" onAction="#handleSettings" styleClass="header-btn"/>
+        <Button text="Report" styleClass="header-btn"/>
+        <Button text="Sign In" styleClass="header-btn"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER">
+        <ToggleButton fx:id="pomodoroBtn" text="Pomodoro" styleClass="timer-btn" minWidth="120"/>
+        <ToggleButton fx:id="shortBreakBtn" text="Short Break" styleClass="timer-btn" minWidth="120"/>
+        <ToggleButton fx:id="longBreakBtn" text="Long Break" styleClass="timer-btn" minWidth="120"/>
+    </HBox>
+
+    <VBox alignment="CENTER" spacing="15" styleClass="timer-display" minHeight="250">
+        <Label fx:id="timerLabel" styleClass="timer-text"/>
+        <ProgressIndicator fx:id="progressIndicator" styleClass="progress-ring"/>
+        <HBox spacing="15" alignment="CENTER">
+            <Button fx:id="startButton" text="START" onAction="#handleStart" styleClass="control-btn" minWidth="100"/>
+            <Button fx:id="pauseButton" text="PAUSE" onAction="#handlePause" styleClass="control-btn" minWidth="100" disable="true"/>
+            <Button fx:id="resetButton" text="RESET" onAction="#handleReset" styleClass="control-btn" minWidth="100"/>
+        </HBox>
+        <Label fx:id="cycleLabel" styleClass="cycle-label"/>
+        <Label fx:id="statusLabel" styleClass="status-label"/>
+    </VBox>
+
+    <VBox spacing="15" styleClass="tasks-section" VBox.vgrow="ALWAYS">
+        <Label text="Tasks" styleClass="section-title"/>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox fx:id="tasksContainer" spacing="5"/>
+        </ScrollPane>
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <TextField fx:id="taskInput" promptText="Add Task" styleClass="task-input" HBox.hgrow="ALWAYS"/>
+            <Button text="Add" onAction="#addTask" styleClass="add-btn" minWidth="80"/>
+        </HBox>
+    </VBox>
+</VBox>

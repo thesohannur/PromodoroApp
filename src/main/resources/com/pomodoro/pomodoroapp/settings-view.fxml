@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.pomodoro.pomodoroapp.controller.SettingsController"
+          hgap="10" vgap="10" style="-fx-padding: 20;">
+    <Label text="Work Duration (minutes):" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Spinner fx:id="workSpinner" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="true"/>
+
+    <Label text="Short Break (minutes):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <Spinner fx:id="shortBreakSpinner" GridPane.rowIndex="1" GridPane.columnIndex="1" editable="true"/>
+
+    <Label text="Long Break (minutes):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <Spinner fx:id="longBreakSpinner" GridPane.rowIndex="2" GridPane.columnIndex="1" editable="true"/>
+</GridPane>

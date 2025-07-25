@@ -1,0 +1,119 @@
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-min-width: 500px;
+    -fx-min-height: 600px;
+    -fx-pref-width: 550px;
+    -fx-pref-height: 650px;
+}
+
+.header-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+}
+
+.timer-btn {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-min-width: 120px;
+}
+
+.timer-btn:selected {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.timer-display {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-alignment: center;
+    -fx-pref-width: 400px;
+}
+
+.timer-text {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.progress-ring {
+    -fx-progress-color: #e74c3c;
+    -fx-scale-x: 1.8;
+    -fx-scale-y: 1.8;
+}
+
+.control-btn {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-min-width: 100px;
+}
+
+.cycle-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+}
+
+.status-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+.tasks-section {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-spacing: 15;
+    -fx-vgrow: ALWAYS;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.task-item {
+    -fx-font-size: 14px;
+}
+
+.task-input {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #ddd;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+.add-btn {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+    -fx-font-size: 14px;
+    -fx-min-width: 80px;
+}
