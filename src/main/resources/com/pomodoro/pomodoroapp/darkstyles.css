@@ -1,0 +1,251 @@
+.root {
+    -fx-base: #1a1a1a; /* Darker */
+    -fx-background: #1a1a1a; /* Darker */
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-text-fill: #e0e0e0;
+}
+
+.header {
+    -fx-background-color: #252525; /* Darker */
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e0e0e0;
+}
+
+.header-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #b0b0b0;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.header-btn:hover {
+    -fx-text-fill: #e74c3c;
+}
+
+.theme-toggle-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #b0b0b0;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+    -fx-graphic: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23b0b0b0" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>');
+    -fx-transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    -fx-text-fill: #e74c3c;
+}
+
+.timer-display {
+    -fx-background-color: #252525; /* Darker */
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-alignment: center;
+    -fx-pref-width: 400px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.timer-btn {
+    -fx-background-color: #252525; /* Darker */
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #3a3a3a; /* Darker */
+    -fx-background-radius: 20;
+    -fx-padding: 8 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-min-width: 120px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.timer-btn:hover {
+    -fx-background-color: #3a3a3a; /* Darker hover */
+}
+
+.timer-btn:selected {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.timer-text {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.progress-ring {
+    -fx-progress-color: #e74c3c;
+    -fx-scale-x: 1.8;
+    -fx-scale-y: 1.8;
+}
+
+.control-btn {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-min-width: 100px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    -fx-background-color: #c0392b;
+}
+
+.control-btn:disabled {
+    -fx-background-color: #3a3a3a; /* Darker disabled state */
+    -fx-text-fill: #8b8b8b; /* Adjusted for better contrast on darker disabled background */
+}
+
+.add-btn {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+    -fx-font-size: 14px;
+    -fx-min-width: 80px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+    -fx-background-color: #27ae60;
+}
+
+.status-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e0e0e0;
+}
+
+.cycle-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #b0b0b0;
+}
+
+.tasks-section {
+    -fx-background-color: #252525; /* Darker */
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-spacing: 15;
+    -fx-vgrow: ALWAYS;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+    -fx-pref-height: 300px; /* Added from user provided code */
+    -fx-max-height: 300px; /* Added from user provided code */
+}
+
+.task-input {
+    -fx-background-color: #252525; /* Darker */
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #3a3a3a; /* Darker */
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+    -fx-pref-width: 300px;
+}
+
+.scroll-pane, .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.task-item {
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-text-fill: #e0e0e0;
+}
+
+.setting-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #e0e0e0;
+}
+
+.setting-spinner {
+    -fx-pref-width: 100px;
+    -fx-background-color: #3a3a3a; /* Darker */
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #3a3a3a; /* Darker */
+    -fx-border-radius: 5;
+}
+
+.settings-pane {
+    -fx-background-color: #1a1a1a; /* Darker */
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.setting-spinner {
+    -fx-pref-width: 120px; /* Duplicate, kept for consistency */
+}
+
+.setting-spinner .text-field {
+    -fx-background-color: #3a3a3a; /* Darker */
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #3a3a3a; /* Darker */
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+}
+
+.setting-spinner .increment-arrow-button,
+.setting-spinner .decrement-arrow-button {
+    -fx-background-color: #606060; /* Adjusted for better contrast on darker background */
+    -fx-background-radius: 0 5 5 0;
+}
+
+.setting-spinner .increment-arrow-button:hover,
+.setting-spinner .decrement-arrow-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.setting-spinner .increment-arrow,
+.setting-spinner .decrement-arrow {
+    -fx-background-color: white;
+}
+
+.timer-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+    -fx-pref-height: 300px;
+    -fx-max-height: 300px;
+}
+
+.tasks-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+    -fx-vbar-policy: always;
+    -fx-hbar-policy: never;
+    -fx-pref-height: 200px;
+}
+
+.task-list {
+    -fx-padding: 5px;
+    -fx-spacing: 5px;
+}
+
+/* Specific override for tasks-section in dark theme to ensure consistency */
+.root .tasks-section {
+    -fx-background-color: #252525; /* Ensures it uses the darker background */
+}

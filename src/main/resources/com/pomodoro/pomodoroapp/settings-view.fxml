@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.pomodoro.pomodoroapp.controller.SettingsController"
-          hgap="10" vgap="10" style="-fx-padding: 20;">
-    <Label text="Work Duration (minutes):" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <Spinner fx:id="workSpinner" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="true"/>
+<VBox alignment="CENTER" spacing="15" styleClass="settings-pane"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pomodoro.pomodoroapp.controller.SettingsController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
 
-    <Label text="Short Break (minutes):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <Spinner fx:id="shortBreakSpinner" GridPane.rowIndex="1" GridPane.columnIndex="1" editable="true"/>
+    <Label text="Timer Settings" styleClass="section-title"/>
 
-    <Label text="Long Break (minutes):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-    <Spinner fx:id="longBreakSpinner" GridPane.rowIndex="2" GridPane.columnIndex="1" editable="true"/>
-</GridPane>
+    <GridPane hgap="15" vgap="15" alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="200"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="100"/>
+        </columnConstraints>
+
+        <Label text="Work Duration (minutes):" styleClass="setting-label"
+               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Spinner fx:id="workSpinner" styleClass="setting-spinner"
+                 GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Short Break Duration (minutes):" styleClass="setting-label"
+               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Spinner fx:id="shortBreakSpinner" styleClass="setting-spinner"
+                 GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Long Break Duration (minutes):" styleClass="setting-label"
+               GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Spinner fx:id="longBreakSpinner" styleClass="setting-spinner"
+                 GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+</VBox>

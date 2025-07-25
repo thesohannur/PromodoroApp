@@ -14,22 +14,40 @@ public class SettingsController {
 
     @FXML
     public void initialize() {
-        workSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 60, 25));
-        shortBreakSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 30, 5));
-        longBreakSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(5, 60, 20));
+        // Configure spinners to be editable with proper ranges
+        workSpinner.setEditable(true);
+        shortBreakSpinner.setEditable(true);
+        longBreakSpinner.setEditable(true);
+
+        workSpinner.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 120, 25));
+        shortBreakSpinner.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 60, 5));
+        longBreakSpinner.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(5, 120, 20));
     }
 
     public void setSettings(TimerSettings settings) {
         this.settings = settings;
-        workSpinner.getValueFactory().setValue(settings.getWorkDuration());
-        shortBreakSpinner.getValueFactory().setValue(settings.getShortBreakDuration());
-        longBreakSpinner.getValueFactory().setValue(settings.getLongBreakDuration());
+        if (settings != null) {
+            workSpinner.getValueFactory().setValue(settings.getWorkDuration());
+            shortBreakSpinner.getValueFactory().setValue(settings.getShortBreakDuration());
+            longBreakSpinner.getValueFactory().setValue(settings.getLongBreakDuration());
+        }
     }
 
     public TimerSettings getUpdatedSettings() {
-        settings.setWorkDuration(workSpinner.getValue());
-        settings.setShortBreakDuration(shortBreakSpinner.getValue());
-        settings.setLongBreakDuration(longBreakSpinner.getValue());
+        if (settings == null) {
+            settings = new TimerSettings(
+                    workSpinner.getValue(),
+                    shortBreakSpinner.getValue(),
+                    longBreakSpinner.getValue()
+            );
+        } else {
+            settings.setWorkDuration(workSpinner.getValue());
+            settings.setShortBreakDuration(shortBreakSpinner.getValue());
+            settings.setLongBreakDuration(longBreakSpinner.getValue());
+        }
         return settings;
     }
 }

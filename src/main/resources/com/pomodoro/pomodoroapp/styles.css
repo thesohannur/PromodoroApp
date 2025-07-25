@@ -7,15 +7,48 @@
     -fx-pref-height: 650px;
 }
 
+.header {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
 .header-btn {
     -fx-background-color: transparent;
     -fx-text-fill: #666;
     -fx-font-size: 14px;
     -fx-padding: 5 10;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.header-btn:hover {
+    -fx-text-fill: #e74c3c;
+}
+
+.theme-toggle-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+    -fx-graphic: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23666" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>');
+    -fx-transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    -fx-text-fill: #e74c3c;
 }
 
 .timer-btn {
-    -fx-background-color: white;
+    -fx-background-color: #ffffff;
     -fx-background-radius: 20;
     -fx-padding: 8 20;
     -fx-border-radius: 20;
@@ -23,6 +56,13 @@
     -fx-border-width: 1;
     -fx-font-size: 14px;
     -fx-min-width: 120px;
+    -fx-text-fill: #333;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.timer-btn:hover {
+    -fx-background-color: #f0f0f0;
 }
 
 .timer-btn:selected {
@@ -32,12 +72,13 @@
 }
 
 .timer-display {
-    -fx-background-color: white;
+    -fx-background-color: #ffffff;
     -fx-background-radius: 10;
     -fx-padding: 20;
     -fx-spacing: 15;
     -fx-alignment: center;
     -fx-pref-width: 400px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
 }
 
 .timer-text {
@@ -60,6 +101,17 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-min-width: 100px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    -fx-background-color: #c0392b;
+}
+
+.control-btn:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #666;
 }
 
 .cycle-label {
@@ -74,11 +126,14 @@
 }
 
 .tasks-section {
-    -fx-background-color: white;
+    -fx-background-color: #ffffff;
     -fx-background-radius: 10;
     -fx-padding: 15;
     -fx-spacing: 15;
     -fx-vgrow: ALWAYS;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-pref-height: 300px; /* Added from user provided code */
+    -fx-max-height: 300px; /* Added from user provided code */
 }
 
 .section-title {
@@ -99,6 +154,7 @@
 
 .task-item {
     -fx-font-size: 14px;
+    -fx-padding: 5;
 }
 
 .task-input {
@@ -107,6 +163,7 @@
     -fx-border-color: #ddd;
     -fx-padding: 8;
     -fx-font-size: 14px;
+    -fx-pref-width: 300px;
 }
 
 .add-btn {
@@ -116,4 +173,78 @@
     -fx-padding: 8 15;
     -fx-font-size: 14px;
     -fx-min-width: 80px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
 }
+
+.add-btn:hover {
+    -fx-background-color: #27ae60;
+}
+
+.tasks-scroll-pane {
+    -fx-background-color: transparent; /* Changed from black to transparent for light theme */
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+    -fx-vbar-policy: always; /* Added from user provided code */
+    -fx-hbar-policy: never; /* Added from user provided code */
+    -fx-pref-height: 200px;
+}
+
+.task-list {
+    -fx-padding: 5px;
+    -fx-spacing: 5px;
+}
+
+.setting-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.setting-spinner {
+    -fx-pref-width: 100px;
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+}
+
+.settings-pane {
+    -fx-background-color: #f4f4f4;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.setting-spinner {
+    -fx-pref-width: 120px; /* Duplicate, kept for consistency */
+}
+
+.setting-spinner .text-field {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+}
+
+.setting-spinner .increment-arrow-button,
+.setting-spinner .decrement-arrow-button {
+    -fx-background-color: #878a88;
+    -fx-background-radius: 0 5 5 0;
+}
+
+.setting-spinner .increment-arrow-button:hover,
+.setting-spinner .decrement-arrow-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.setting-spinner .increment-arrow,
+.setting-spinner .decrement-arrow {
+    -fx-background-color: white;
+}
+
+.timer-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+    -fx-pref-height: 300px;
+    -fx-max-height: 300px;
+}
+

@@ -1,17 +1,20 @@
 package com.pomodoro.pomodoroapp.controller;
 
 import com.pomodoro.pomodoroapp.model.TimerSettings;
+import com.pomodoro.pomodoroapp.util.DialogUtil;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class PomodoroController {
     @FXML private Label timerLabel;
@@ -27,6 +30,7 @@ public class PomodoroController {
     @FXML private VBox tasksContainer;
     @FXML private TextField taskInput;
     @FXML private Button settingsButton;
+    @FXML private Button themeToggleBtn;
 
     private Timeline timeline;
     private int secondsRemaining;
@@ -38,6 +42,12 @@ public class PomodoroController {
     public void initialize() {
         setupTimerButtons();
         resetTimer();
+        initializeThemeButton();
+    }
+
+    private void initializeThemeButton() {
+        themeToggleBtn.setOnAction(event -> toggleTheme());
+        themeToggleBtn.setText("Dark Mode");
     }
 
     private void setupTimerButtons() {
@@ -49,28 +59,59 @@ public class PomodoroController {
     }
 
     @FXML
+    private void toggleTheme() {
+        Scene scene = themeToggleBtn.getScene();
+        if (scene != null) {
+            DialogUtil.toggleTheme(scene);
+            updateThemeButtonText(scene);
+        }
+    }
+
+    private void updateThemeButtonText(Scene scene) {
+        themeToggleBtn.setText(DialogUtil.isDarkMode(scene) ? "Light Mode" : "Dark Mode");
+    }
+
+    @FXML
     private void handleSettings() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pomodoro/pomodoroapp/settings-view.fxml"));
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setTitle("Timer Settings");
             dialog.initModality(Modality.APPLICATION_MODAL);
-            dialog.getDialogPane().setContent(loader.load());
+
+            // Load the content
+            VBox content = loader.load();
+            dialog.getDialogPane().setContent(content);
             dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+            // Apply current theme to dialog
+            Scene mainScene = themeToggleBtn.getScene();
+            if (mainScene != null) {
+                content.getStylesheets().clear();
+                content.getStylesheets().addAll(mainScene.getStylesheets());
+            }
 
             SettingsController controller = loader.getController();
             controller.setSettings(settings);
 
-            final Button okButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
-            okButton.addEventFilter(ActionEvent.ACTION, event -> {
+            // Show dialog and wait for response
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
                 settings = controller.getUpdatedSettings();
-                resetTimer();
-            });
-
-            dialog.showAndWait();
+                resetTimer(); // Apply the new settings immediately
+            }
         } catch (IOException e) {
             e.printStackTrace();
+            showErrorAlert("Failed to load settings", e.getMessage());
         }
+    }
+
+    private void showErrorAlert(String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     @FXML
@@ -104,14 +145,19 @@ public class PomodoroController {
 
     @FXML
     private void addTask() {
-        if (!taskInput.getText().isEmpty()) {
-            CheckBox task = new CheckBox(taskInput.getText());
+        String taskText = taskInput.getText().trim();
+        if (!taskText.isEmpty()) {
+            CheckBox task = new CheckBox(taskText);
+            task.setStyle("-fx-text-fill: -fx-text-base-color;"); // Ensure proper text color
             tasksContainer.getChildren().add(task);
             taskInput.clear();
         }
     }
 
     private void startTimer() {
+        if (timeline != null) {
+            timeline.stop();
+        }
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
